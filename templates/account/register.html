@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Register</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Register Your Account</h1>
+      {% if  user.is_authenticated %}
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+      {% else %}
+      <p>You are logged in. To register, logout and try with a different
+        email, username and password.
+      </p>
+      {% endif %}
+			<!-- {% if user.is_authenticated %}
+				{% csrf_token %}
+				{{ form.as_p }}
+			{% else %}
+
+			{% endif %} -->
+      </form>
+    </div>
+  </body>
+</html>
