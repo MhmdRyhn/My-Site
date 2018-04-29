@@ -6,6 +6,7 @@ from django.contrib.auth.forms import (
 )
 
 
+
 #------------- Edit Profile Form ------------------#
 class EditProfleForm(UserChangeForm):
 	class Meta:
