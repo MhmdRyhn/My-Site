@@ -5,11 +5,26 @@
     <title>Edit Profile</title>
   </head>
   <body>
-    <h1>Edit your profile</h1>
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Save</button>
-    </form>
+    <a href="{% url 'home' %}"><b>Muslim Blogger</b></a>
+    {% if user.is_authenticated %}
+      <h1>Edit your profile</h1>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+      </form>
+
+      <p>
+        Return to <a href="{% url 'profile' %}" style="text-decoration:none"><b>Profile</b></a> <br>
+        <a href="{% url 'logout' %}" style="text-decoration:none"><b>Logout</b></a>
+      </p>
+    {% else %}
+      <h1>OW!! You are not Logged In</h1> <br>
+      <p>
+        To Edit Profile <a href="{% url 'login' %}" style="text-decoration:none"><b>Login</b></a> <br>
+        If you don't have an account, <a href="{% url 'register' %}" style="text-decoration:none"><b>Register</b></a>
+      </p>
+      <!-- You can <a href="{% url 'login' %}"><b>Login</b></a> or <a href="{% url 'register' %}"><b>Register</b></a> -->
+    {% endif %}
   </body>
 </html>
