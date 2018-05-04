@@ -10,7 +10,7 @@ from django.contrib.auth import update_session_auth_hash
 
 
 def home_view(request):
-	return render(request, 'home.html', {})
+	return render(request, 'home.html', {'user': request.user})
 
 
 
@@ -23,7 +23,7 @@ def register_view(request):
 		form.save()
 		return render(request, 'base.html', {})
 
-	args = {'form': form}
+	args = {'form': form, 'user': request.user}
 	return render(request, 'account/register.html', args)
 
 
@@ -38,13 +38,13 @@ def view_profile(request):
 def edit_profile(request):
 	# POST, if the request.method == POST
 	# Otherwise None
-	form = EditProfleForm(request.POST or None, instance=request.user)
+	form = EditProfleForm(request.POST or None, instance=request.user or None)
 	# form is invalid if request.method == GET
 	if form.is_valid():
 		form.save()
-		return redirect('view_profile')
+		return redirect('profile')
 
-	args = {'form': form}
+	args = {'form': form, 'user': request.user}
 	return render(request, 'account/edit_profile.html', args)
 
 
@@ -53,9 +53,11 @@ def change_password(request):
 	form = PasswordChangeForm(data=request.POST or None, user=request.user)
 	if form.is_valid():
 		form.save()
+		# This function keeps the user logged in after changing password
 		update_session_auth_hash(request, form.user)
+		return redirect('profile')
 
-	args = {'form': form}
+	args = {'form': form, 'user': request.user}
 	return render(request, 'account/change_password.html', args)
 
 
