@@ -3,4 +3,4 @@
 ### Status: Under Construction ;)
 
 
-A blog where one can watch others' detail info to contact with him/her for job reference.
+A platform for the Muslim Bloggers who can post their NOTES about ISLAM and COMPARATIVE RELIGION.
