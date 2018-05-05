@@ -5,10 +5,12 @@ from account.forms import (
 )
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.decorators import login_required
 #----------------- End of import ----------------------#
 
 
 
+@login_required
 def home_view(request):
 	return render(request, 'home.html', {'user': request.user})
 
@@ -28,6 +30,7 @@ def register_view(request):
 
 
 
+@login_required
 def view_profile(request):
 	# 'user' = Info of logged in user
 	args = {'user': request.user}
@@ -35,6 +38,7 @@ def view_profile(request):
 
 
 
+@login_required
 def edit_profile(request):
 	# POST, if the request.method == POST
 	# Otherwise None
@@ -49,6 +53,7 @@ def edit_profile(request):
 
 
 
+@login_required
 def change_password(request):
 	form = PasswordChangeForm(data=request.POST or None, user=request.user)
 	if form.is_valid():
