@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Home</title>
-  </head>
-  <body>
-    <a href="{% url 'home' %}"><b>Muslim Blogger</b></a>
-    <h1>Assalamu Alaikum</h1>
-    <h2>This is the home page</h2>
-    {% if user.is_authenticated %}
-      <p>
-        Status: Logged In <br>
-        Jazak Allah for visiting my site. :)
-      </p>
-      Go to your <a href="{% url 'profile' %}"><b>Profile</b></a>
-    {% else %}
-      You can <a href="{% url 'login' %}"><b>Login</b></a> or <a href="{% url 'register' %}"><b>Register</b></a>
-    {% endif %}
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <title>Home</title>
+    </head>
+    <body>
+        <a href="{% url 'home' %}"><b>Muslim Blogger</b></a>
+        <h1>Assalamu Alaikum</h1>
+        <h2>This is the home page</h2>
+        {% if user.is_authenticated %}
+        <p>
+            Status: Logged In <br>
+            Jazak Allah for visiting my site. :)
+        </p>
+        Go to your <a href="{% url 'profile' %}"><b>Profile</b></a>
+        {% else %}
+        You can <a href="{% url 'login' %}"><b>Login</b></a> or <a href="{% url 'register' %}"><b>Register</b></a>
+        {% endif %}
+    </body>
 </html>
