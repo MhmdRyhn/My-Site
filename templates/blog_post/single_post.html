@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    {% if is_same_user %}
+        [<a href="{% url 'edit_post' other_user.username post.id %}"><b>edit</b></a>]
+    {% endif %}
+        <!--<p>{{ post.post | linebreaks }}</p>-->
+        <!--<br><br><br><br>-->
+        <pre>{{ post.post }}</pre>
+{% endblock %}
+
+
+

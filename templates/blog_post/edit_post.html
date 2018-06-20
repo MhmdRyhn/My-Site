@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if is_same_user %}
+            <h1>Edit Your Post</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Save Changes</button>
+            </form>
+        {% else %}
+            <h1>You can't edit other user's post</h1>
+        {% endif %}
+    {% endif %}
+{% endblock %}
