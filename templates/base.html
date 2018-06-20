@@ -2,9 +2,15 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Home</title>
+        <title>Django Test Project</title>
     </head>
     <body>
-        <h1>This is Unwanted page</h1>
+        <a href="{% url 'home' %}"><b>Home</b></a>
+        <a href="{% url 'create_post' %}"><b>Create Post</b></a>
+        <a href="{% url 'profile' user.username %}"><b>Profile</b></a>
+        <a href="{% url 'logout' %}"><b>Logout</b></a>
+        
+        {% block content %}
+        {% endblock %}
     </body>
 </html>
