@@ -4,7 +4,8 @@
 {% block content %}
     <h1>{{ post.title }}</h1>
     {% if is_same_user %}
-        [<a href="{% url 'edit_post' other_user.username post.id %}"><b>edit</b></a>]
+        [<a href="{% url 'edit_post' other_user.username post.id %}"><b>Edit</b></a>]
+        [<a href="{% url 'delete_post' other_user.username post.id %}"><b>Delete</b></a>]
     {% endif %}
         <!--<p>{{ post.post | linebreaks }}</p>-->
         <!--<br><br><br><br>-->
