@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account',
+    'blog_post',
 ]
 
 MIDDLEWARE = [
@@ -152,7 +153,7 @@ STATICFILES_DIRS = [
 # ********* Added after starting the project ********#
 
 # Redirected to this page after login [Default is /accounts/profile/]
-LOGIN_REDIRECT_URL = '/profile/'
+LOGIN_REDIRECT_URL = '/'
 # Log in Link after Password Reset
 LOGIN_URL = '/login/'
 
