@@ -21,9 +21,9 @@ class RegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
 
     def __init__(self, *args, **kwargs):
-        super(RegistrationForm, self).__init__(*args, *kwargs)
+        super(RegistrationForm, self).__init__(*args, **kwargs)
         # Customize UserCreationForm help_text
-        self.fields['username'].help_text = '* Required'
+        # self.fields['username'].help_text = '* Required'
         self.fields['password1'].help_text = None  # '<br><br>Your password must contain at least 8 characters.'
         self.fields['password2'].help_text = None  # '<br><br>Enter the same password as before'
         self.fields['email'].help_text = None
@@ -59,4 +59,3 @@ class RegistrationForm(UserCreationForm):
 
         return user
 
-# The blank lines above are for ease of "TYPING" in "EDITOR"
