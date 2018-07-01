@@ -13,7 +13,7 @@ def create_post(request):
         post = form.save(commit=False)
         post.user = request.user
         post.save()
-        return redirect('profile')
+        return redirect('all_post', username=request.user.username)
 
     context = {
         'form': form,
@@ -30,7 +30,7 @@ def edit_post(request, username, post_id):
     form = EditPostForm(data=request.POST or None, instance=post)
     if form.is_valid():
         form.save()
-        return redirect('single_post')
+        return redirect('single_post', username=username, post_id=post_id)
 
     context = {
         'form': form,
@@ -49,7 +49,7 @@ def edit_post(request, username, post_id):
 def delete_post(request, username, post_id):
     if request.user.username == username:
         Post.objects.get(pk=post_id).delete()
-        return redirect('home')
+        return redirect('all_post', username=username)
     else:
         pass
 
