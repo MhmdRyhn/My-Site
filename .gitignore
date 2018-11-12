@@ -1,6 +1,5 @@
-mysite/__pycache__
-account/__pycache__
-account/migrations/__pycache__
-blog_post/__pycache__
-blog_post/migrations/__pycache__
+*.pyc
 .idea
+venv/
+__pycache__/
+migrations/
